@@ -30,7 +30,7 @@ chmod +x ./upload_01.sh
 - cloud9 좌측 index.html 파일을 열고 workshop에 나와 있는 가이드대로 두 군데를 수정합니다.
     1. index.html에 이미지 URL을 기입하기 위해서 URL 정보를 확인합니다. 업로드 된 aws.png 파일을 선택한 후, 우측에 나오는 상세 정보에서 Object URL 정보를 복사합니다.
     2. index.html에 이미지의 URL 부분에 복사해둔 Object URL 을 붙여 넣습니다. 그리고 이미지를 클릭하면 ALB로 이동하도록 오토 스케일링 웹 서비스 배포에서 생성한 로드밸런서의 ALB DNS Name(http://ALB DNS Name) 을 지정합니다.
-- 초기 버킷 생성 및 s3파일 업로드
+- index.html 파일을 s3로 업로드
 ```code
 chmod +x ./upload_02.sh 
 ./upload_02.sh
