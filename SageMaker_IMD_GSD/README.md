@@ -23,4 +23,4 @@ chmod 500 ./init.sh
 ```
 - 잠시 후 S3 콘솔로 이동합니다. [클릭하세요](https://s3.console.aws.amazon.com/s3/home?region=us-east-1) 
 - 이동 : sagemaker-immersion-day-${ACCOUNT_ID} 
-- hotel_bookings.csv가 정상적으로 업로드 되었는지 확인합니다.
+- /dataset 폴더 밑에 hotel_bookings.csv가 정상적으로 업로드 되었는지 확인합니다.

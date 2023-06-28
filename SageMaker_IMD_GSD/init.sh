@@ -15,4 +15,4 @@ echo ${AWS_REGION}
 aws s3api create-bucket --bucket ${BUCKET_NAME} --region ${AWS_REGION}
 
 # data 폴더 업로드
-aws s3 cp ./hotel_bookings.csv s3://${BUCKET_NAME}/ 
+aws s3 cp ./hotel_bookings.csv s3://${BUCKET_NAME}/dataset/
