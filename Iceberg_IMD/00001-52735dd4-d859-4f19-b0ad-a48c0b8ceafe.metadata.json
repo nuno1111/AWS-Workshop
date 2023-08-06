@@ -1,0 +1,122 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "4f2b11e2-9a04-4c82-bbeb-1c9e68931876",
+  "location" : "s3://transactionaldatalake-s3bucket3feedc04-1cwygus1xbmv5/iceberg/flight_delays_iceberg",
+  "last-sequence-number" : 1,
+  "last-updated-ms" : 1691289580826,
+  "last-column-id" : 10,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "year",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 2,
+      "name" : "month",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 3,
+      "name" : "flightdate",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 4,
+      "name" : "airlineid",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 5,
+      "name" : "carrier",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 6,
+      "name" : "flightnum",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 7,
+      "name" : "originairportid",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 8,
+      "name" : "origin",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 9,
+      "name" : "destairportid",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 10,
+      "name" : "dest",
+      "required" : false,
+      "type" : "string"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ {
+      "name" : "year",
+      "transform" : "identity",
+      "source-id" : 1,
+      "field-id" : 1000
+    } ]
+  } ],
+  "last-partition-id" : 1000,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "write.format.default" : "parquet",
+    "write.object-storage.enabled" : "true",
+    "write.object-storage.path" : "s3://transactionaldatalake-s3bucket3feedc04-1cwygus1xbmv5/iceberg/flight_delays_iceberg/data"
+  },
+  "current-snapshot-id" : 5082742676247128116,
+  "refs" : {
+    "main" : {
+      "snapshot-id" : 5082742676247128116,
+      "type" : "branch"
+    }
+  },
+  "snapshots" : [ {
+    "sequence-number" : 1,
+    "snapshot-id" : 5082742676247128116,
+    "timestamp-ms" : 1691289580826,
+    "summary" : {
+      "operation" : "append",
+      "trino_query_id" : "20230806_023931_00027_4vk4z",
+      "added-data-files" : "180",
+      "added-records" : "31060131",
+      "added-files-size" : "77374631",
+      "changed-partition-count" : "6",
+      "total-records" : "31060131",
+      "total-files-size" : "77374631",
+      "total-data-files" : "180",
+      "total-delete-files" : "0",
+      "total-position-deletes" : "0",
+      "total-equality-deletes" : "0"
+    },
+    "manifest-list" : "s3://transactionaldatalake-s3bucket3feedc04-1cwygus1xbmv5/iceberg/flight_delays_iceberg/metadata/snap-5082742676247128116-1-31e281f0-96c9-4616-a7d9-11089f81c2e4.avro",
+    "schema-id" : 0
+  } ],
+  "statistics" : [ ],
+  "snapshot-log" : [ {
+    "timestamp-ms" : 1691289580826,
+    "snapshot-id" : 5082742676247128116
+  } ],
+  "metadata-log" : [ {
+    "timestamp-ms" : 1691287573860,
+    "metadata-file" : "s3://transactionaldatalake-s3bucket3feedc04-1cwygus1xbmv5/iceberg/flight_delays_iceberg/metadata/00000-0ba4220f-4afb-43f2-b94a-46e5b7187002.metadata.json"
+  } ]
+}

@@ -1,0 +1,90 @@
+{
+  "format-version" : 2,
+  "table-uuid" : "4f2b11e2-9a04-4c82-bbeb-1c9e68931876",
+  "location" : "s3://transactionaldatalake-s3bucket3feedc04-1cwygus1xbmv5/iceberg/flight_delays_iceberg",
+  "last-sequence-number" : 0,
+  "last-updated-ms" : 1691287573860,
+  "last-column-id" : 10,
+  "current-schema-id" : 0,
+  "schemas" : [ {
+    "type" : "struct",
+    "schema-id" : 0,
+    "fields" : [ {
+      "id" : 1,
+      "name" : "year",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 2,
+      "name" : "month",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 3,
+      "name" : "flightdate",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 4,
+      "name" : "airlineid",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 5,
+      "name" : "carrier",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 6,
+      "name" : "flightnum",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 7,
+      "name" : "originairportid",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 8,
+      "name" : "origin",
+      "required" : false,
+      "type" : "string"
+    }, {
+      "id" : 9,
+      "name" : "destairportid",
+      "required" : false,
+      "type" : "int"
+    }, {
+      "id" : 10,
+      "name" : "dest",
+      "required" : false,
+      "type" : "string"
+    } ]
+  } ],
+  "default-spec-id" : 0,
+  "partition-specs" : [ {
+    "spec-id" : 0,
+    "fields" : [ {
+      "name" : "year",
+      "transform" : "identity",
+      "source-id" : 1,
+      "field-id" : 1000
+    } ]
+  } ],
+  "last-partition-id" : 1000,
+  "default-sort-order-id" : 0,
+  "sort-orders" : [ {
+    "order-id" : 0,
+    "fields" : [ ]
+  } ],
+  "properties" : {
+    "write.format.default" : "parquet",
+    "write.object-storage.enabled" : "true",
+    "write.object-storage.path" : "s3://transactionaldatalake-s3bucket3feedc04-1cwygus1xbmv5/iceberg/flight_delays_iceberg/data"
+  },
+  "current-snapshot-id" : -1,
+  "refs" : { },
+  "snapshots" : [ ],
+  "snapshot-log" : [ ],
+  "metadata-log" : [ ]
+}
