@@ -1,9 +1,11 @@
-### 00. flight_delays_iceberg Folder 생성
+## 00. 사전준비
+## 00-01. flight_delays_iceberg Folder 생성
 - 대상폴더 : s3://<자동생성버킷명>/iceberg/
 - 생성폴더명 : flight_delays_iceberg
 - 생성후모습 : s3://<자동생성버킷명>/iceberg/flight_delays_iceberg/
+## 00-02. Athena 기본 설정
 - Athena 서비스 이동 : https://us-east-1.console.aws.amazon.com/athena/home?region=us-east-1#/query-editor
-- Athena QueryLog 설정  : s3://<자동생성버킷명>/athenaqueryresults/ 
+- Athena QueryLog 설정 : s3://<자동생성버킷명>/athenaqueryresults/ 
 
 ## 01. 소스 데이터 인 Hive Parquet 테이블 셋팅
 ### 01-01. Hive EXTERNAL 테이블 생성
