@@ -134,7 +134,7 @@ select * from iceberg.flight_delays_pq limit 5;
 
 ### 01-03. Partition Upload
 ```sql
-MSCK REPAIR TAB.LE iceberg.flight_delays_pq;
+MSCK REPAIR TABLE iceberg.flight_delays_pq;
 ```
 
 ### 01-04. 업로드 된 최종 데이터확인
