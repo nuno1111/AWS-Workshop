@@ -222,8 +222,19 @@ ID/PW 로그인을 위한 구성 - 사실상 Transfer Famaily의 User Add의 필
 
 ![Cloud9LoginSuccess](02.FTP_SecretManager_Private/02-10.Cloud9LoginSuccess.png)
 
+### NLB의 중요한 셋팅
+- 리스너/타켓그룹 Port 21번과 8192 ~ 8200 모두 등록 필요
+![NLB_Listener](02.FTP_SecretManager_Private/02-15.NLB_Listener.png)
+- 참고 : https://docs.aws.amazon.com/ko_kr/transfer/latest/userguide/create-server-ftp.html
+
 ### Local Mac 에서 FTP 접속확인
 - NLB 셋팅을 하고 테스트한 결과입니다.
-- NLB 설정은 잘 하실거라 믿어 의심치 않기 때문에 생략하였습니다^^
 
 ![MacLoginSuccess](02.FTP_SecretManager_Private/02-11.MacLoginSuccess.png)
+
+- Filezilla로 파일업로드
+![Filezilla](02.FTP_SecretManager_Private/02-14.Filezilla.png)
+
+- LFTP로 파일업로드한 화면
+![LFTP_Result](02.FTP_SecretManager_Private/02-16.LFTP_Result.png)
+
