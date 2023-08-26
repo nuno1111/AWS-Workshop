@@ -214,6 +214,8 @@ select count(1) from iceberg.flight_delays_iceberg; -- 31,060,131 건
 - data 폴더가 생김
 - metadata 폴더 하위 새로생긴 metadata.json, manifest_list.avro, manifest.avro 파일 확인
 - data 폴더 하위 실제 데이터 Parquet 파일 생성
+- avro 파일 확인
+    - python 가상환경 activate : source ./myenv/bin/activate
 
 ## 4. 스키마 변경 - Evolving Iceberg table schema
 ### 4.1. comment 컬럼 추가
