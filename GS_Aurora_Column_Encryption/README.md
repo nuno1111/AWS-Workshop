@@ -1,4 +1,5 @@
-### GS Networks Aurora PG 컬럼 암호화 방안
+# Aurora PG 컬럼 암호화 방안
+- 해당 가이드는 KMS와 Lambda를 Aurora PG와 연동하여 DB 컬럼암호화를 PostgreSQL Function으로 구현하기 위한 가이드입니다.
 
 ## 0. Lambda Role 설정 - KMS 접근 용도
 ### 0-1. Lambda를 위한 Role 생성
