@@ -76,5 +76,27 @@ CREATE EXTENSION IF NOT EXISTS aws_lambda CASCADE;
 ```
 
 ### 3-4. aws_lambda 호출 결과 확인
+```sql
+SELECT * from 
+aws_lambda.invoke(
+aws_commons.create_lambda_function_arn(
+    'arn:aws:lambda:us-east-1:541948677097:function:Auroa-Column-Encryption-Lambda', 'us-east-1'), 
+    '{ 
+        "event_type": "enc", 
+        "event_text": "Hello~ Lambda~"
+    }'::json 
+);
+
+SELECT * from 
+aws_lambda.invoke(
+	aws_commons.create_lambda_function_arn(
+		'arn:aws:lambda:us-east-1:541948677097:function:Auroa-Column-Encryption-Lambda', 'us-east-1'), 
+		'{
+		  "event_type": "dec",
+		  "event_text": "AQICAHhKvEAh12f84XmCAZHVpIcTK+97wOcLaUD0M91TRvpzpQHSim+UlUMFEKFBf/r3fwFgAAAAbDBqBgkqhkiG9w0BBwagXTBbAgEAMFYGCSqGSIb3DQEHATAeBglghkgBZQMEAS4wEQQMbLGyjv2eJjQ1/SEaAgEQgCks1iUTq8/Y2E+Idn1hRMfAnIkl92BYdnEQc3S9aCmshTytDzNNfu+f6w=="
+		}'::json 
+);
+
+```
 ![RDS-002](images/RDS-002.png)
 
