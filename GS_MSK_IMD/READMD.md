@@ -1,6 +1,6 @@
 ## GS리테일 MSK Immersion Day
 
-[02.MSK 클러스터 생성](./contents/00.Create_Cluster.md)
+[00.MSK 클러스터 생성](./contents/00.Create_Cluster.md)
 
 [01.환경설정](./contents/01.SetUp.md)
 
