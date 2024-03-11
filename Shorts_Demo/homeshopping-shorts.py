@@ -13,7 +13,7 @@ config = Config(
 )
 
 # AWS 기본정보
-BucketName = "gs-short-form-job"
+BucketName = "[동영상-저장되어있는-버킷명]"
 transcribe_client = boto3.client('transcribe', region_name = 'us-east-1')
 bedrock_client = boto3.client('bedrock-runtime', region_name = 'us-east-1', config=config)
 s3_client = boto3.client('s3')
@@ -395,4 +395,4 @@ if __name__ == "__main__":
     #     main_job(s3_filename,product_category)
     # print("Short pic End!!!")
     
-    main_job("hyundai_homeshopping", "hyundai_homeshopping.mp4", "홈쇼핑 에피소드")
+    main_job("[Transcribe_job_name]", "[동영상파일명]", "[상품카테고리&상품명]")
