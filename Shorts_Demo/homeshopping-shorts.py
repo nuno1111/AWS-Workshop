@@ -311,28 +311,30 @@ def image_resize(input_video_path, output_shortform_path, one_min_json, video_ti
     text_clip_top = mp.TextClip(video_title, fontsize=50, color='white', font='NanumGothic', align='center', size=(w,200)).set_pos(("center", 1920/2 - int(h/2) - 200 )).set_duration(duration)
 
     clips = [blank_clip, hd_video.set_pos(("center","center")), text_clip_top]
-    # start = 0.0
-    # end = 0.0
+    
+    # 하위 자막 추가
+    start = 0.0
+    end = 0.0
    
-    # for line in one_min_json:
-    #     start_time = line['start_time']
-    #     end_time = line['end_time']
-    #     text = line['text']
+    for line in one_min_json:
+        start_time = line['start_time']
+        end_time = line['end_time']
+        text = line['text']
         
-    #     start_str = datetime.strptime(start_time, "%H:%M:%S.%f")
-    #     end_str = datetime.strptime(end_time, "%H:%M:%S.%f")
+        start_str = datetime.strptime(start_time, "%H:%M:%S.%f")
+        end_str = datetime.strptime(end_time, "%H:%M:%S.%f")
 
-    #     diff = end_str - start_str
+        diff = end_str - start_str
         
-    #     total_seconds = diff.total_seconds() 
+        total_seconds = diff.total_seconds() 
         
-    #     start = end
-    #     end = end + total_seconds
+        start = end
+        end = end + total_seconds
 
-    #     textclip = mp.TextClip(text, fontsize=40, color='white', font='NanumGothic', align='center', size=(w,200)).set_pos(("center", 1920/2 + int(h/2)))
-    #     textclip = textclip.set_start(start).set_end(end)
+        textclip = mp.TextClip(text, fontsize=40, color='white', font='NanumGothic', align='center', size=(w,200)).set_pos(("center", 1920/2 + int(h/2)))
+        textclip = textclip.set_start(start).set_end(end)
 
-    #     clips.append(textclip)
+        clips.append(textclip)
 
     final = mp.CompositeVideoClip(clips).set_duration(duration)
 
