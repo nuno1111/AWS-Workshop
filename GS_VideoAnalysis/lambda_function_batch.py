@@ -84,4 +84,4 @@ def lambda_handler(event, context):
       
     print(f"GS SHOP Video Analysis Seccess!!")
 
-lambda_handler(event=None,context=None)
+# lambda_handler(event=None,context=None)
