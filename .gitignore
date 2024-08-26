@@ -1,1 +1,4 @@
 .DS_Store
+.venv
+gs_images/
+__pycache__
