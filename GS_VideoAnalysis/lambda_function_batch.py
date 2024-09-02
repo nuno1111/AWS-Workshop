@@ -121,7 +121,9 @@ def lambda_handler(event, context):
           config_name=config_name
         )
 
-        for key in success_files:
+        for i, key in enumerate(success_files):
+            if i >= 5:
+                break
             video_analyze(key)
         
         # 3-9 Upstage Endpoint 삭제

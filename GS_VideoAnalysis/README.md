@@ -17,11 +17,12 @@
                     "Action": [
                         "s3:PutObject",
                         "s3:GetObject",
+                        "logs:CreateLogStream",
                         "s3:ListBucket",
                         "s3:DeleteObject",
-                        "logs:CreateLogStream",
                         "logs:CreateLogGroup",
-                        "logs:PutLogEvents"
+                        "logs:PutLogEvents",
+                        "s3:GetBucketLocation"
                     ],
                     "Resource": [
                         "arn:aws:s3:::gsshop-video-analysis-761482380245-ap-northeast-2",
@@ -34,13 +35,16 @@
                     "Effect": "Allow",
                     "Action": [
                         "athena:StartQueryExecution",
-                        "athena:GetQueryExecution",
-                        "athena:GetQueryResults",
                         "sagemaker:CreateEndpoint",
                         "sagemaker:DeleteEndpoint",
+                        "bedrock:InvokeModel",
+                        "athena:GetQueryExecution",
+                        "athena:GetQueryResults",
                         "sagemaker:DescribeEndpoint",
                         "sagemaker:InvokeEndpoint",
-                        "bedrock:InvokeModel"
+                        "glue:GetTable",
+                        "glue:GetPartitions",
+                        "glue:UpdateTable"
                     ],
                     "Resource": "*"
                 }
