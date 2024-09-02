@@ -28,7 +28,7 @@ def save_result_json(bucket, result_path_key, result_json):
         ContentType='application/json'
     )
 
-### 2-8. s3에서 결과 저장
+### 2-9. s3에서 신규 등록 이미지 찾기
 def find_success_files(bucket, prefix):
     # S3 클라이언트 생성
     response = s3.list_objects_v2(Bucket=bucket, Prefix=prefix)
@@ -42,7 +42,7 @@ def find_success_files(bucket, prefix):
 
     return success_files
 
-### 2-9. 분석 후 폴더 이동
+### 2-10. 분석 후 폴더 이동
 def move_s3_folder(bucket, source_folder, destination_folder):
 
     # 소스 폴더의 모든 객체 나열
@@ -67,4 +67,4 @@ def move_s3_folder(bucket, source_folder, destination_folder):
         # 원본 객체 삭제
         s3.delete_object(Bucket=bucket, Key=old_key)
 
-        print(f"Moved {old_key} to {new_key}")
+        # print(f"Moved {old_key} to {new_key}")

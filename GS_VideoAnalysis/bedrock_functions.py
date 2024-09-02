@@ -3,18 +3,17 @@ import json
 
 bedrock_rt = boto3.client(
     "bedrock-runtime",
-    region_name="us-west-2",
+    region_name="us-east-1",
     # endpoint_url=None                      
 )
-modelId = "anthropic.claude-3-5-sonnet-20240620-v1:0"
+modelId = "us.anthropic.claude-3-5-sonnet-20240620-v1:0"
 
 ### 2.7 프롬프트 정의
 
 system_prompt = """<instruction>
 - 당신은 홈쇼핑 방송에서 정확한 가격정보를 추출하는 머신입니다.
-- 답변결과는 다음과 <result> 태그 예시와 같이 json형태로 출력해주세요.
-- json 결과 앞뒤에 부가 설명없이 반드시 json 결과로 알려주세요.
-- 최종 결과 값이 json 형태가 맞는지 반드시 다시 확인 해주세요.
+- 답변결과는 다음과 <result> 태그 예시와 같이 출력해주세요.
+- <result> 태그 앞뒤에 부가 설명없이 반드시 <result> 태그만 결과로 알려주세요.
 </instruction>
 
 <result>
@@ -44,18 +43,12 @@ system_prompt = """<instruction>
 </result>
 """
 
-# - <croped_ocr_text> 는 Frame에서 우측 바를 Crop한 이미지에 대한 OCR입니다. 
-# - <croped_ocr_text> 에 가격정보가 정확합니다. <croped_ocr_text> 를 먼저 참조하고, <croped_ocr_text> 가격정보가 없다면 <original_ocr_text>를 부가적으로 참조해주세요.
-
-final_prompt = """
+final_prompt = """<input_ocr_list/>
 
 <instruction>
 - <input_ocr_list> 는 홈쇼핑 동영상내 여러 frame으로부터 ocr text 목록이고, Hallucinations이 있을 수 있습니다.
 - <input_ocr_list> 으로부터 대표상품명/가격/행사카드할인율/가격행사 정보를 추출해주세요.
-- <original_ocr_text> 는 전체 Frame에서 OCR로 문자를 추출하였습니다.
 </instruction>
-
-<input_ocr_list/>
 
 <가격정보_유의사항>
  - 가격은 선택옵션으로 2개 이상이 될 수 있습니다. 2개 이상일 경우 "선택1", "선택2" 이렇게 표시가 있는 경우가 많으나 없을수도 있습니다. 
@@ -206,7 +199,7 @@ final_prompt = """
     </result>
 </example-02>
 
-- 최종 결과값의 Template는 다음과 같습니다. 반드시 json 형태로 결과를 출력해주세요.
+- 최종 결과값의 Template는 다음과 같습니다.
 <result>
 {
     "대표상품명": "[대표상품명]",

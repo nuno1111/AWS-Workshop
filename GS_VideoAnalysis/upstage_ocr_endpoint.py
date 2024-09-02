@@ -2,8 +2,11 @@ import boto3
 import json
 import time
 
-sagemaker_runtime = boto3.client("sagemaker-runtime")
-sagemaker_client = boto3.client('sagemaker')
+region_name = "us-east-1" # Bedrock과 Sagemaker Region은 us-east-1으로 설정
+
+sagemaker_runtime = boto3.client("sagemaker-runtime",region_name=region_name)
+sagemaker_client = boto3.client("sagemaker",region_name=region_name)
+
 
 def create_upstage_ocr_endpoint(endpoint_name, config_name):
     print(f"Creating endpoint: '{endpoint_name}'")
