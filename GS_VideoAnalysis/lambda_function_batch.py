@@ -57,9 +57,8 @@ def video_analyze(key):
                 croped_image_data = croped_byte_stream.getvalue()
                 
                 # 엔드포인트 호출 (S3에서 가져온 Content-Type 사용)
-                original_ocr_text = ""
-                try:
-                    response = upstage_ocr_endpoint.invoke_endpoint(endpoint_name, croped_image_data, content_type)
+                response = upstage_ocr_endpoint.invoke_endpoint(endpoint_name, croped_image_data, content_type)
+                if "text" in response:
                     original_ocr_text = response["text"]
                     
                     ## OCR만 적용
@@ -67,9 +66,7 @@ def video_analyze(key):
                     input_ocr_list += "  <frame_id>{}</frame_id>\n".format(i)
                     input_ocr_list += "  <original_ocr_text>{}</original_ocr_text>\n".format(original_ocr_text)
                     input_ocr_list += "</frame>\n"
-                    
-                except Exception as e:
-                    # print(e)
+                else:
                     print(f"vrid : {vrid}, {i} 번째 이미지에 텍스트 없음")
                 
                 i = i+1

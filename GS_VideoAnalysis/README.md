@@ -100,10 +100,13 @@
   - logs/tables/
   - logs/athena_output/
 
-
 - S3 trigger 사용시 참조 : https://docs.aws.amazon.com/ko_kr/lambda/latest/dg/with-s3-example.html 
 
-### 03. Lambda ( seoul region / ap-northeast-2 ) 에서 OCR 및 Bedrock 호출 (us-east-1)
+### 03. Athena iceberg 테이블 설정
+- glue datacatalog - database 생성 ( main.ipynb 3-1 참조 )
+- glue datacatalog - athena로 table 생성 ( main.ipynb 3-2 참조 )
+
+### 04. Lambda ( seoul region / ap-northeast-2 ) 에서 OCR 및 Bedrock 호출 (us-east-1)
 - lambda_layer 설정 (python 3.12 기준)
   - Layer 참조 : https://api.klayers.cloud/api/v2/p3.12/layers/latest/ap-northeast-2/html
   - Pillow 패키지 레이어 : arn:aws:lambda:ap-northeast-2:770693421928:layer:Klayers-p312-pillow:1
