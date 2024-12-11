@@ -1,4 +1,4 @@
-## GS리테일 MSK Immersion Day
+## MWAA Immersion Day
 
 [01.Airflow 기본 DAG](./contents/01.Introduction_to_Apache_Airflow_DAG.md)
 
