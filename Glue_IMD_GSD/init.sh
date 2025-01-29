@@ -1,6 +1,7 @@
 # Account Name 기준으로 Bucket명 설정
 AWS_ACCOUNT_ID=`aws sts get-caller-identity --query Account --output text`
 # AWS_REGION=`aws configure get region`
+AWS_REGION=$AWS_REGION
 BUCKET_NAME=${AWS_ACCOUNT_ID}-analytics-workshop-bucket
 echo " "
 # echo "export BUCKET_NAME=\"${BUCKET_NAME}\"" >> /home/ec2-user/.bashrc
