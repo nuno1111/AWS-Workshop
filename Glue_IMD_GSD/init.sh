@@ -20,3 +20,5 @@ aws s3 cp data/ s3://${BUCKET_NAME}/data/ --recursive
 # EMR 파일 업로드 
 aws s3 cp emr_source/emr_pyspark.py s3://${BUCKET_NAME}/scripts/ 
 
+# logs 폴더 생성
+aws s3api put-object --bucket ${BUCKET_NAME} --key logs/
