@@ -18,5 +18,5 @@ aws s3api create-bucket --bucket ${BUCKET_NAME} --region ${AWS_REGION}
 aws s3 cp data/ s3://${BUCKET_NAME}/data/ --recursive
 
 # EMR 파일 업로드 
-aws s3 cp emr_source/emr_pyspark.py s3://${BUCKET_NAME}/scripts/ --recursive
+aws s3 cp emr_source/emr_pyspark.py s3://${BUCKET_NAME}/scripts/ 
 

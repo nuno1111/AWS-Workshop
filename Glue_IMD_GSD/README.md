@@ -14,11 +14,13 @@
 ```code
 git clone https://github.com/nuno1111/AWS-Workshop.git
 cd AWS-Workshop/Glue_IMD_GSD/
+
 ```
 - 초기 버킷 생성 및 s3파일 업로드
 ```code
 chmod 500 ./init.sh
 ./init.sh
+
 ```
 - 잠시 후 S3 콘솔로 이동합니다. [클릭하세요](https://s3.console.aws.amazon.com/s3/home?region=us-east-1) 
 - 이동 : yourname-analytics-workshop-bucket > data
