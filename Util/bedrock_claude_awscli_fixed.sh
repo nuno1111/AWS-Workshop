@@ -227,16 +227,16 @@ get_max_tokens() {
     
     if [[ "$use_high_cost" == "true" ]]; then
         case "$model_name" in
-            "claude-3-haiku") echo "60000" ;;
-            "claude-3.5-sonnet-v2"|"claude-3.7-sonnet"|"claude-sonnet-4") echo "60000" ;;  # sonnet도 최대 토큰으로 설정
-            *) echo "60000" ;;
+            "claude-3-haiku") echo "40000" ;;
+            "claude-3.5-sonnet-v2"|"claude-3.7-sonnet"|"claude-sonnet-4") echo "40000" ;;  # sonnet도 최대 토큰으로 설정
+            *) echo "40000" ;;
         esac
     else
         # 기본 토큰 수를 매우 크게 늘려서 더 많은 비용 발생
         case "$model_name" in
-            "claude-3-haiku") echo "60000" ;;  # haiku는 저렴하므로 최대한 많은 토큰
-            "claude-3.5-sonnet-v2"|"claude-3.7-sonnet"|"claude-sonnet-4") echo "60000" ;;  # sonnet도 haiku와 동일하게 최대 토큰으로 설정
-            *) echo "60000" ;;
+            "claude-3-haiku") echo "40000" ;;  # haiku는 저렴하므로 최대한 많은 토큰
+            "claude-3.5-sonnet-v2"|"claude-3.7-sonnet"|"claude-sonnet-4") echo "40000" ;;  # sonnet도 haiku와 동일하게 최대 토큰으로 설정
+            *) echo "40000" ;;
         esac
     fi
 }
@@ -336,6 +336,8 @@ invoke_claude_model_until_dollar() {
             --body "$encoded_payload" \
             --content-type "application/json" \
             --region "$region" \
+            --cli-read-timeout 1800 \
+            --cli-connect-timeout 120 \
             "$response_file" 2>"$error_file"; then
             
             local end_time=$(date +%s)
@@ -467,6 +469,8 @@ invoke_claude_model() {
         --body "$encoded_payload" \
         --content-type "application/json" \
         --region "$region" \
+        --cli-read-timeout 1800 \
+        --cli-connect-timeout 120 \
         "$response_file" 2>"$error_file"; then
         
         local end_time=$(date +%s)
