@@ -7,4 +7,5 @@ git clone https://github.com/nuno1111/AWS-Workshop.git
 cd ./AWS-Workshop/Util
 chmod +x ./bedrock_claude_awscli_fixed.sh     
 ./bedrock_claude_awscli_fixed.sh --all-models -r us-east-1 --high-cost --repeat-until-dollar 
+
 ```
