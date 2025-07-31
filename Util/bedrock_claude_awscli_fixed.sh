@@ -266,16 +266,16 @@ get_max_tokens() {
     
     if [[ "$use_high_cost" == "true" ]]; then
         case "$model_name" in
-            "claude-3-haiku") echo "20000" ;;  # 80,000 토큰 목표를 위해 최대로 설정
-            "claude-3.5-haiku"|"claude-3.7-sonnet"|"claude-sonnet-4") echo "20000" ;;  # 60,000 토큰 목표를 위해 최대로 설정
-            *) echo "20000" ;;
+            "claude-3-haiku") echo "2000" ;;  # 80,000 토큰 목표를 위해 최대로 설정
+            "claude-3.5-haiku"|"claude-3.7-sonnet"|"claude-sonnet-4") echo "2000" ;;  # 60,000 토큰 목표를 위해 최대로 설정
+            *) echo "2000" ;;
         esac
     else
         # 60,000 토큰 목표를 위해 매우 크게 설정
         case "$model_name" in
-            "claude-3-haiku") echo "20000" ;;  # 60,000+ 토큰 생성을 위해 최대로 설정
-            "claude-3.5-haiku"|"claude-3.7-sonnet"|"claude-sonnet-4") echo "20000" ;;  # 60,000+ 토큰 생성을 위해 최대로 설정
-            *) echo "20000" ;;
+            "claude-3-haiku") echo "2000" ;;  # 60,000+ 토큰 생성을 위해 최대로 설정
+            "claude-3.5-haiku"|"claude-3.7-sonnet"|"claude-sonnet-4") echo "2000" ;;  # 60,000+ 토큰 생성을 위해 최대로 설정
+            *) echo "2000" ;;
         esac
     fi
 }
