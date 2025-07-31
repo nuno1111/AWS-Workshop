@@ -68,13 +68,13 @@ DEFAULT_PROMPT="인공지능과 머신러닝에 대해 매우 상세하고 포�
 # 모델별 토큰 가격 (USD per 1K tokens) - 2025년 1월 기준
 typeset -A INPUT_TOKEN_PRICES
 INPUT_TOKEN_PRICES[claude-3-haiku]="0.00025"
-INPUT_TOKEN_PRICES[claude-3.5-sonnet-v2]="0.003"
+INPUT_TOKEN_PRICES[claude-3.5-haiku]="0.001"
 INPUT_TOKEN_PRICES[claude-3.7-sonnet]="0.003"
 INPUT_TOKEN_PRICES[claude-sonnet-4]="0.003"
 
 typeset -A OUTPUT_TOKEN_PRICES
 OUTPUT_TOKEN_PRICES[claude-3-haiku]="0.00125"
-OUTPUT_TOKEN_PRICES[claude-3.5-sonnet-v2]="0.015"
+OUTPUT_TOKEN_PRICES[claude-3.5-haiku]="0.005"
 OUTPUT_TOKEN_PRICES[claude-3.7-sonnet]="0.015"
 OUTPUT_TOKEN_PRICES[claude-sonnet-4]="0.015"
 
@@ -95,7 +95,7 @@ generate_high_cost_prompt() {
 
 각 주제에 대해 초보자도 이해할 수 있도록 단계별로 설명하고, 실무에서 활용할 수 있는 팁과 베스트 프랙티스를 포함해주세요."
             ;;
-        "claude-3.5-sonnet-v2"|"claude-3.7-sonnet"|"claude-sonnet-4")
+        "claude-3.5-haiku"|"claude-3.7-sonnet"|"claude-sonnet-4")
             base_prompt="다음 모든 주제들에 대해 각각 매우 상세하고 전문적인 분석을 작성해주세요. 각 주제마다 최소 25000단어 이상으로 작성하고, 가능한 한 길고 자세하게 설명해주세요. 절대로 짧게 요약하지 말고, 모든 세부사항을 포함해서 작성해주세요. 매우 포괄적이고 길게 작성해주세요:
 
 1. 현대 소프트웨어 아키텍처의 진화와 마이크로서비스 패턴
@@ -170,10 +170,11 @@ REGIONS=(
 
 # Claude 모델 정의 (on-demand 모델)
 CLAUDE_MODEL_NAMES=(
+    "claude-3.5-haiku"
     "claude-sonnet-4"
     "claude-3.7-sonnet"
     "claude-3-haiku"
-    # "claude-3.5-sonnet-v2"
+    
 )
 
 # 모델 이름으로 모델 ID 가져오는 함수 (리전별)
@@ -193,7 +194,7 @@ get_model_id() {
     
     case "$model_name" in
         "claude-3-haiku") echo "${prefix}.anthropic.claude-3-haiku-20240307-v1:0" ;;
-        "claude-3.5-sonnet-v2") echo "${prefix}.anthropic.claude-3-5-sonnet-20241022-v2:0" ;;
+        "claude-3.5-haiku") echo "${prefix}.anthropic.claude-3-5-haiku-20241022-v1:0" ;;
         "claude-3.7-sonnet") echo "${prefix}.anthropic.claude-3-7-sonnet-20250219-v1:0" ;;
         "claude-sonnet-4") echo "${prefix}.anthropic.claude-sonnet-4-20250514-v1:0" ;;
         *) echo "" ;;
@@ -206,7 +207,7 @@ usage() {
     echo ""
     echo "옵션:"
     echo "  -p, --prompt TEXT     Claude 모델에게 보낼 프롬프트 (기본값: 자기소개 요청)"
-    echo "  -m, --model MODEL     특정 모델만 테스트 (claude-3-haiku, claude-3.5-sonnet-v2, claude-3.7-sonnet, claude-sonnet-4)"
+    echo "  -m, --model MODEL     특정 모델만 테스트 (claude-3-haiku, claude-3.5-haiku, claude-3.7-sonnet, claude-sonnet-4)"
     echo "  -r, --region REGION   특정 리전만 테스트 (ap-northeast-2, us-east-1, us-west-2)"
     echo "  --all-models          모든 Claude 모델 테스트"
     echo "  --all-regions         모든 리전 테스트"
@@ -228,14 +229,14 @@ get_max_tokens() {
     if [[ "$use_high_cost" == "true" ]]; then
         case "$model_name" in
             "claude-3-haiku") echo "40000" ;;
-            "claude-3.5-sonnet-v2"|"claude-3.7-sonnet"|"claude-sonnet-4") echo "40000" ;;  # sonnet도 최대 토큰으로 설정
+            "claude-3.5-haiku"|"claude-3.7-sonnet"|"claude-sonnet-4") echo "40000" ;;  # sonnet도 최대 토큰으로 설정
             *) echo "40000" ;;
         esac
     else
         # 기본 토큰 수를 매우 크게 늘려서 더 많은 비용 발생
         case "$model_name" in
             "claude-3-haiku") echo "40000" ;;  # haiku는 저렴하므로 최대한 많은 토큰
-            "claude-3.5-sonnet-v2"|"claude-3.7-sonnet"|"claude-sonnet-4") echo "40000" ;;  # sonnet도 haiku와 동일하게 최대 토큰으로 설정
+            "claude-3.5-haiku"|"claude-3.7-sonnet"|"claude-sonnet-4") echo "40000" ;;  # sonnet도 haiku와 동일하게 최대 토큰으로 설정
             *) echo "40000" ;;
         esac
     fi
