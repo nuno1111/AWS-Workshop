@@ -209,10 +209,11 @@ REGIONS=(
 # Claude 모델 정의 (on-demand 모델)
 CLAUDE_MODEL_NAMES=(
     "claude-sonnet-4"
+    "claude-opus-4"
+    "claude-opus-4.1"
     "claude-3.7-sonnet"
     "claude-3.5-haiku"
     "claude-3-haiku"
-    
 )
 
 # 모델 이름으로 모델 ID 가져오는 함수 (리전별)
@@ -235,6 +236,8 @@ get_model_id() {
         "claude-3.5-haiku") echo "${prefix}.anthropic.claude-3-5-haiku-20241022-v1:0" ;;
         "claude-3.7-sonnet") echo "${prefix}.anthropic.claude-3-7-sonnet-20250219-v1:0" ;;
         "claude-sonnet-4") echo "${prefix}.anthropic.claude-sonnet-4-20250514-v1:0" ;;
+        "claude-opus-4") echo "${prefix}.anthropic.claude-opus-4-20250514-v1:0" ;;
+        "claude-opus-4.1") echo "${prefix}.anthropic.claude-opus-4-1-20250805-v1:0" ;;
         *) echo "" ;;
     esac
 }
