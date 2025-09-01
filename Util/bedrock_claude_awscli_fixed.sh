@@ -95,12 +95,16 @@ INPUT_TOKEN_PRICES[claude-3-haiku]="0.00025"
 INPUT_TOKEN_PRICES[claude-3.5-haiku]="0.001"
 INPUT_TOKEN_PRICES[claude-3.7-sonnet]="0.003"
 INPUT_TOKEN_PRICES[claude-sonnet-4]="0.003"
+INPUT_TOKEN_PRICES[claude-opus-4]="0.015"
+INPUT_TOKEN_PRICES[claude-opus-4.1]="0.015"
 
 typeset -A OUTPUT_TOKEN_PRICES
 OUTPUT_TOKEN_PRICES[claude-3-haiku]="0.00125"
 OUTPUT_TOKEN_PRICES[claude-3.5-haiku]="0.005"
 OUTPUT_TOKEN_PRICES[claude-3.7-sonnet]="0.015"
 OUTPUT_TOKEN_PRICES[claude-sonnet-4]="0.015"
+OUTPUT_TOKEN_PRICES[claude-opus-4]="0.075"
+OUTPUT_TOKEN_PRICES[claude-opus-4.1]="0.075"
 
 # $1 이상 비용을 위한 모델별 프롬프트 생성
 generate_high_cost_prompt() {
