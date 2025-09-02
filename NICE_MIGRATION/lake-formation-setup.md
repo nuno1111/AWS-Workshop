@@ -65,10 +65,18 @@
 - 데이터베이스 생성될 S3 Bucket이나 폴더 선택 (예: `s3://demo.nice.co.kr.hdfs.datalake/, s3://demo.nice.co.kr.datalake/`)
 - **Use only IAM access control for new tables in this database** 체크박스 **해제**
 - **Create database** 클릭
+- 총 2개의 Database 생성
 
 ![스크린샷](./image/lf-06.png)
 
-## 7. 사용자 권한 부여
+## 7. 설정 확인
+설정이 완료되면 다음을 확인:
+
+- **Data Catalog settings**에서 기본 권한이 비활성화되어 있는지 확인
+- **Administrative roles and tasks**에서 `IAMAllowedPrincipals`가 제거되었는지 확인
+- 모든 데이터 액세스가 Lake Formation 권한으로만 제어됨
+
+## 향후참조 - 사용자/롤 권한 부여
 
 - 왼쪽 네비게이션에서 **Permissions** → **Data permissions** 클릭
 - **Grant** 버튼 클릭
@@ -77,14 +85,6 @@
 - 데이터베이스 또는 테이블 선택
 - **Permissions**: 필요한 권한 선택 (SELECT, INSERT, CREATE_TABLE 등)
 - **Grant** 클릭
-
-## 8. 설정 확인
-
-설정이 완료되면 다음을 확인:
-
-- **Data Catalog settings**에서 기본 권한이 비활성화되어 있는지 확인
-- **Administrative roles and tasks**에서 `IAMAllowedPrincipals`가 제거되었는지 확인
-- 모든 데이터 액세스가 Lake Formation 권한으로만 제어됨
 
 ## 주의사항
 

@@ -10,4 +10,6 @@
 ## HDFS / Production Table 생성하고 최초 마이그레이션 수행
 [HDFS 마이그레이션 바로가기](./hdfs-table-migration.md)
 
+## SageMaker Unified Studio 구성
+[SMUS 바로가기](./sums-setting.md)
 

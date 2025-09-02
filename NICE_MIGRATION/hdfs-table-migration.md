@@ -161,7 +161,7 @@ TBLPROPERTIES (
 );
 ```
 
-## Procuction 테이블 생성
+## Production 테이블 생성
 
 - Iceberg 테이블을 저장하기 위한 Production s3 폴더 생성
     - 예시 : s3://demo.nice.co.kr.datalake/DW/CARD/KB_MEDI/TBKBMEDI_STORE_TMP/
