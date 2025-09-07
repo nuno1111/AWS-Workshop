@@ -129,3 +129,13 @@ AWS Concole에서 **SageMaker**로 검색하고 이동
 ## 9. SMUS Project로 돌아가서 Table 조회 확인
 ![스크린샷](./image/smus-13.png)
 
+## 10. Glue와 EMR 에서 nice_database 를 SparkSQL로 조회
+- 데모 Jupyter 파일은 다음 참조
+    - [Glue-Demo](./demo_file/NiceDemo-Glue.ipynb)
+    - [EMR-Demo](./demo_file/NiceDemo-EMR-S.ipynb)
+- Project Role에 S3 접근 권한 부여 필요
+- (주의) 현재 예시는 AmazonS3FullAccess 를 줬지만 실제로는 버킷(s3://demo.nice.co.kr.datalake) 지정하여 설정 필요
+- (주의) 관리자 프로젝트 권한은 Datalake 의 입력/조회/수정 권한, 분석가 권한은 버킷의 조회 권한만 부여
+
+![스크린샷](./image/smus-14.png)
+

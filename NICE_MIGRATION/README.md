@@ -13,3 +13,7 @@
 ## SageMaker Unified Studio 구성
 [SMUS 바로가기](./sums-setting.md)
 
+## MWAA + Glue 구성
+[MWAA+Glue 바로가기](./mwaa_glue.md)
+
+
